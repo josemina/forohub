@@ -1,6 +1,6 @@
-package com.josemina.forohub.persistence;
+package com.josemina.forohub.persistence.dao;
 
-import com.josemina.forohub.entities.Response;
+import com.josemina.forohub.persistence.entities.Response;
 
 import java.util.List;
 import java.util.Optional;

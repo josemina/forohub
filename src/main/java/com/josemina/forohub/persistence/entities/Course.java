@@ -1,5 +1,4 @@
-package com.josemina.forohub.entities;
-
+package com.josemina.forohub.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,13 +9,11 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "permissions")
-public class PermissionEntity {
+@Table(name = "cursos")
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(unique = true, nullable = false, updatable = false)
     private String name;
-
+    private String categorie;
 }

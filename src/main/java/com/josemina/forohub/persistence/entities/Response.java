@@ -1,4 +1,4 @@
-package com.josemina.forohub.entities;
+package com.josemina.forohub.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

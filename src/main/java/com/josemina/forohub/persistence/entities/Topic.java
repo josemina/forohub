@@ -1,10 +1,9 @@
-package com.josemina.forohub.entities;
+package com.josemina.forohub.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Setter

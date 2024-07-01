@@ -1,8 +1,8 @@
-package com.josemina.forohub.persistence.iml;
+package com.josemina.forohub.persistence.dao.iml;
 
-import com.josemina.forohub.entities.Response;
-import com.josemina.forohub.persistence.IResponseDAO;
-import com.josemina.forohub.repository.ResponseRepository;
+import com.josemina.forohub.persistence.entities.Response;
+import com.josemina.forohub.persistence.dao.IResponseDAO;
+import com.josemina.forohub.persistence.repository.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

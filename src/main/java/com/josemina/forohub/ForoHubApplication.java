@@ -1,10 +1,10 @@
 package com.josemina.forohub;
 
-import com.josemina.forohub.entities.PermissionEntity;
-import com.josemina.forohub.entities.Role;
-import com.josemina.forohub.entities.RoleEnum;
-import com.josemina.forohub.entities.UserEntity;
-import com.josemina.forohub.repository.UserRepository;
+import com.josemina.forohub.persistence.entities.PermissionEntity;
+import com.josemina.forohub.persistence.entities.Role;
+import com.josemina.forohub.persistence.entities.RoleEnum;
+import com.josemina.forohub.persistence.entities.UserEntity;
+import com.josemina.forohub.persistence.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,8 +1,8 @@
 package com.josemina.forohub.controllers;
 
 import com.josemina.forohub.controllers.dto.TopicDTO;
-import com.josemina.forohub.entities.Topic;
-import com.josemina.forohub.repository.TopicRepository;
+import com.josemina.forohub.persistence.entities.Topic;
+import com.josemina.forohub.persistence.repository.TopicRepository;
 import com.josemina.forohub.service.impl.TopicServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

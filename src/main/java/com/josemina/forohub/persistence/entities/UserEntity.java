@@ -1,6 +1,5 @@
-package com.josemina.forohub.entities;
+package com.josemina.forohub.persistence.entities;
 
-import com.josemina.forohub.entities.Role;
 import jakarta.persistence.*;
 import lombok.*;
 

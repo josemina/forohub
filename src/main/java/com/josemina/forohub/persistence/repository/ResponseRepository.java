@@ -1,6 +1,6 @@
-package com.josemina.forohub.repository;
+package com.josemina.forohub.persistence.repository;
 
-import com.josemina.forohub.entities.Response;
+import com.josemina.forohub.persistence.entities.Response;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

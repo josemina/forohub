@@ -1,7 +1,7 @@
 package com.josemina.forohub.service.impl;
 
-import com.josemina.forohub.entities.Topic;
-import com.josemina.forohub.persistence.ITopicDAO;
+import com.josemina.forohub.persistence.entities.Topic;
+import com.josemina.forohub.persistence.dao.ITopicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

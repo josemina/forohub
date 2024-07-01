@@ -1,6 +1,6 @@
-package com.josemina.forohub.persistence;
+package com.josemina.forohub.persistence.dao;
 
-import com.josemina.forohub.entities.Topic;
+import com.josemina.forohub.persistence.entities.Topic;
 
 import java.util.List;
 import java.util.Optional;

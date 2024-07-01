@@ -1,6 +1,6 @@
 package com.josemina.forohub.controllers.dto;
 
-import com.josemina.forohub.entities.Response;
+import com.josemina.forohub.persistence.entities.Response;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

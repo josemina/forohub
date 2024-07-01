@@ -43,9 +43,9 @@ public class SecurityConfig {
 
                     http.requestMatchers(HttpMethod.GET, "/topics").hasAuthority("READ");
                     http.requestMatchers(HttpMethod.GET, "/topics/{id}").hasAuthority("READ");
-                    http.requestMatchers(HttpMethod.POST, "topics").hasAuthority("CREATE");
-                    http.requestMatchers(HttpMethod.PUT, "/topics").hasAuthority("UPDATE");
-                    http.requestMatchers(HttpMethod.DELETE, "/topics/id").hasAuthority("DELETE");
+                    http.requestMatchers(HttpMethod.POST, "/topics").hasAuthority("CREATE");
+                    http.requestMatchers(HttpMethod.PUT, "/topics/{id}").hasAuthority("UPDATE");
+                    http.requestMatchers(HttpMethod.DELETE, "/topics/{id}").hasAuthority("DELETE");
 
 //                    http.requestMatchers(HttpMethod.GET, "auth").hasAnyRole("ADMIN", "USER", "INVITED");
 //                    http.requestMatchers(HttpMethod.POST, "auth").hasAnyRole("ADMIN", "USER");

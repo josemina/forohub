@@ -1,7 +1,7 @@
 package com.josemina.forohub.service.impl;
 
-import com.josemina.forohub.entities.Response;
-import com.josemina.forohub.persistence.IResponseDAO;
+import com.josemina.forohub.persistence.entities.Response;
+import com.josemina.forohub.persistence.dao.IResponseDAO;
 import com.josemina.forohub.service.IResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

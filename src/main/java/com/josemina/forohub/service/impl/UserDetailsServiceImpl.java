@@ -3,14 +3,17 @@ package com.josemina.forohub.service.impl;
 import com.josemina.forohub.controllers.dto.AuthCreateUserRequest;
 import com.josemina.forohub.controllers.dto.AuthLoginRequest;
 import com.josemina.forohub.controllers.dto.AuthResponse;
-import com.josemina.forohub.entities.UserEntity;
-import com.josemina.forohub.repository.UserRepository;
+import com.josemina.forohub.persistence.entities.Role;
+import com.josemina.forohub.persistence.entities.UserEntity;
+import com.josemina.forohub.persistence.repository.RoleRepository;
+import com.josemina.forohub.persistence.repository.UserRepository;
 import com.josemina.forohub.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +24,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -30,6 +35,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private JwtUtils jwtUtils;
@@ -88,6 +96,38 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         String email = authCreateUserRequest.email();
         List<String> roleRequest = authCreateUserRequest.roleRequest().roleListName();
 
-        return null;
+        Set<Role> roleSet = roleRepository.findRoleByRoleEnumIn(roleRequest)
+                .stream()
+                .collect(Collectors.toSet());
+
+        if(roleSet.isEmpty()){
+            throw new IllegalArgumentException("The roles specified does not exist.");
+        }
+        UserEntity userEntity = UserEntity.builder()
+                .username(username)
+                .password(passwordEncoder.encode(password))
+                .email(email)
+                .roles(roleSet)
+                .isEnabled(true)
+                .accountNoLocked(true)
+                .accountNoExpired(true)
+                .credentialNoExpired(true)
+                .build();
+
+        UserEntity userCreated = userRepository.save(userEntity);
+        List<SimpleGrantedAuthority> authorityList = new ArrayList<>();
+        userCreated.getRoles().forEach(role -> authorityList.add(new SimpleGrantedAuthority("Role_".concat(role.getRoleEnum().name()))));
+        userCreated.getRoles()
+                .stream()
+                .flatMap(role -> role.getPermissionList().stream())
+                .forEach(permission -> authorityList.add(new SimpleGrantedAuthority(permission.getName())));
+
+        Authentication auth = new UsernamePasswordAuthenticationToken(userCreated.getUsername(), userCreated.getPassword(), authorityList);
+
+        String accessToken = jwtUtils.createToken(auth);
+        AuthResponse authResponse = new AuthResponse(accessToken, "Bearer");
+
+
+        return authResponse;
     }
 }

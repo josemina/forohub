@@ -1,6 +1,6 @@
-package com.josemina.forohub.repository;
+package com.josemina.forohub.persistence.repository;
 
-import com.josemina.forohub.entities.UserEntity;
+import com.josemina.forohub.persistence.entities.UserEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
