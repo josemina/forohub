@@ -1,5 +1,6 @@
 package com.josemina.forohub.entities;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,13 +10,13 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "usuarios")
-public class User {
+@Table(name = "permissions")
+public class PermissionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true, nullable = false, updatable = false)
     private String name;
-    private String email;
-    private String password;
 
 }

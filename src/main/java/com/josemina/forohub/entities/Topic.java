@@ -23,7 +23,7 @@ public class Topic {
     private String createDate;
     private boolean status;
 //    @ManyToOne
-//    private User author;
+//    private UserEntity author;
     private String author;
 //    @ManyToOne
 //    private Course course;
