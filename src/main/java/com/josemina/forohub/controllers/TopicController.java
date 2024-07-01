@@ -4,6 +4,7 @@ import com.josemina.forohub.controllers.dto.TopicDTO;
 import com.josemina.forohub.persistence.entities.Topic;
 import com.josemina.forohub.persistence.repository.TopicRepository;
 import com.josemina.forohub.service.impl.TopicServiceImpl;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/topics")
+
 public class TopicController {
 
     @Autowired
@@ -66,6 +68,8 @@ public class TopicController {
         if(topicDTO.getTitle().isBlank() || topicDTO.getMessage().isBlank()){
             return ResponseEntity.badRequest().build();
         }
+
+
         topicRepository.save(Topic.builder().title(topicDTO.getTitle())
                 .message(topicDTO.getMessage())
                 .createDate(topicDTO.getCreateDate())
