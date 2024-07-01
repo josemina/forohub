@@ -26,6 +26,11 @@ public class TopicDAOImpl implements ITopicDAO {
     }
 
     @Override
+    public Optional<Topic> findByMessage(String message) {
+        return topicRepository.findByMessage(message);
+    }
+
+    @Override
     public void save(Topic topic) {
         topicRepository.save(topic);
     }

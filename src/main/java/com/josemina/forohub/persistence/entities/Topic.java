@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -19,7 +20,7 @@ public class Topic {
     private Long id;
     private String title;
     private String message;
-    private String createDate;
+    private Date createDate;
     private boolean status;
 //    @ManyToOne
 //    private UserEntity author;

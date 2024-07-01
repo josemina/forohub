@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,14 +69,18 @@ public class TopicController {
         if(topicDTO.getTitle().isBlank() || topicDTO.getMessage().isBlank()){
             return ResponseEntity.badRequest().build();
         }
-
+        Optional<Topic> topicExist = topicRepository.findByMessage(topicDTO.getMessage());
+        if(topicExist.isPresent()){
+            return ResponseEntity.badRequest().body("Message already exists");
+        }
 
         topicRepository.save(Topic.builder().title(topicDTO.getTitle())
                 .message(topicDTO.getMessage())
-                .createDate(topicDTO.getCreateDate())
+                .createDate(new Date())
                 .author(topicDTO.getMessage())
                 .status(topicDTO.isStatus())
                 .course(topicDTO.getCourse())
+                .responseList(topicDTO.getResponseList())
                 .build());
 
         return ResponseEntity.created(new URI("/topics")).build();

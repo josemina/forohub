@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -17,7 +18,7 @@ public class TopicDTO {
     private Long id;
     private String title;
     private String message;
-    private String createDate;
+    private Date createDate;
     private boolean status;
     private String author;
     private String course;
