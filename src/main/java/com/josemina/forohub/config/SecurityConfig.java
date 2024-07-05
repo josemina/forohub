@@ -48,6 +48,14 @@ public class SecurityConfig {
                     http.requestMatchers(HttpMethod.PUT, "/topics/{id}").hasAuthority("UPDATE");
                     http.requestMatchers(HttpMethod.DELETE, "/topics/{id}").hasAuthority("DELETE");
 
+                    http.requestMatchers(HttpMethod.GET, "/responses").hasAuthority("READ");
+                    http.requestMatchers(HttpMethod.GET, "/responses/{id}").hasAuthority("READ");
+                    http.requestMatchers(HttpMethod.POST, "/responses").hasAuthority("CREATE");
+                    http.requestMatchers(HttpMethod.PUT, "/responses/{id}").hasAuthority("UPDATE");
+                    http.requestMatchers(HttpMethod.DELETE, "/responses/{id}").hasAuthority("DELETE");
+
+
+                    http.requestMatchers(HttpMethod.GET, "/users").hasAuthority("READ");
 
                 })
                 .addFilterBefore(new JwtTokenValidator(jwtUtils), BasicAuthenticationFilter.class)

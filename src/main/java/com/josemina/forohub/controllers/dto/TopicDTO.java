@@ -1,6 +1,7 @@
 package com.josemina.forohub.controllers.dto;
 
 import com.josemina.forohub.persistence.entities.Response;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,9 @@ import java.util.List;
 @Builder
 public class TopicDTO {
     private Long id;
+    @NotNull(message = "Title is obligatory")
     private String title;
+    @NotNull(message = "Message is obligatory")
     private String message;
     private Date createDate;
     private boolean status;

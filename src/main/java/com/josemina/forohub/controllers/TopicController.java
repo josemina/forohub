@@ -4,7 +4,6 @@ import com.josemina.forohub.controllers.dto.TopicDTO;
 import com.josemina.forohub.persistence.entities.Topic;
 import com.josemina.forohub.persistence.repository.TopicRepository;
 import com.josemina.forohub.service.impl.TopicServiceImpl;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,23 +27,22 @@ public class TopicController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id){
         Optional<Topic> topic = topicRepository.findById(id);
-        if(topic.isPresent()){
-            Topic topicObj = topic.get();
-
-            TopicDTO topicDTO = TopicDTO.builder()
-                    .id(topicObj.getId())
-                    .title(topicObj.getTitle())
-                    .message(topicObj.getMessage())
-                    .createDate(topicObj.getCreateDate())
-                    .status(topicObj.isStatus())
-                    .author(topicObj.getAuthor())
-                    .course(topicObj.getCourse())
-                    .responseList(topicObj.getResponseList())
-                    .build();
-            return ResponseEntity.ok(topicDTO);
+        if(!topic.isPresent()){
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.notFound().build();
+        Topic topicObj = topic.get();
 
+        TopicDTO topicDTO = TopicDTO.builder()
+                .id(topicObj.getId())
+                .title(topicObj.getTitle())
+                .message(topicObj.getMessage())
+                .createDate(topicObj.getCreateDate())
+                .status(topicObj.isStatus())
+                .author(topicObj.getAuthor())
+                .course(topicObj.getCourse())
+                .responseList(topicObj.getResponseList())
+                .build();
+        return ResponseEntity.ok(topicDTO);
     }
 
     @GetMapping()
@@ -77,7 +75,7 @@ public class TopicController {
         topicRepository.save(Topic.builder().title(topicDTO.getTitle())
                 .message(topicDTO.getMessage())
                 .createDate(new Date())
-                .author(topicDTO.getMessage())
+                .author(topicDTO.getAuthor())
                 .status(topicDTO.isStatus())
                 .course(topicDTO.getCourse())
                 .responseList(topicDTO.getResponseList())

@@ -19,7 +19,8 @@ public class Response {
     private Date createDate;
     private String author;
     private String solution;
-    @ManyToOne
-    @JoinColumn(name = "id_topico")
-    private Topic topic;
+    private String topic;
+//    @ManyToOne
+//    @JoinColumn(name = "id_topico")
+//    private Topic topic;
 }

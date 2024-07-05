@@ -3,7 +3,9 @@ package com.josemina.forohub.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Setter
@@ -36,6 +38,9 @@ public class UserEntity {
 
     @Column(name = "credential_No_Expired")
     private boolean credentialNoExpired;
+
+//    @OneToMany
+//    private List<Topic> topicList = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))

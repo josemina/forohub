@@ -1,12 +1,12 @@
 package com.josemina.forohub.service.impl;
 
-import com.josemina.forohub.controllers.dto.TopicDTO;
+
 import com.josemina.forohub.persistence.entities.Topic;
 import com.josemina.forohub.persistence.dao.ITopicDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+
 import java.util.List;
 import java.util.Optional;
 
