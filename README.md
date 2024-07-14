@@ -53,3 +53,10 @@ Endpoints principales:
 
 
 * Con el archivo `ForoHub.postman_collection.json` puedes hacer pruebas con Postman
+
+Los usuarios cuentan con Roles y permisos
+
+![roles y permisos](roles.jpg)
+
+### Autor
+Jose Mina [Linkedin](https://www.linkedin.com/in/joseminac/)
