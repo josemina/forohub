@@ -1,0 +1,319 @@
+{
+	"info": {
+		"_postman_id": "8724cad4-fcd7-435d-a53c-480b5890c9dd",
+		"name": "ForoHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30817444"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jose\",\r\n    \"email\": \"jose@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Topic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGT1JPSFVCSldULUJBQ0tFTkQiLCJzdWIiOiJqb3NlIiwiYXV0aG9yaXRpZXMiOiJDUkVBVEUsREVMRVRFLFJFQUQsUk9MRV9BRE1JTixVUERBVEUiLCJpYXQiOjE3MjAxOTIxMzgsImV4cCI6MTcyMDE5MzkzOCwianRpIjoiNTM0OTdlOWUtNmY1Yy00ZTg4LWJiYjItNDRhNDFlNDA1NzhhIiwibmJmIjoxNzIwMTkyMTM4fQ.nfVbIqp6hOKmTLCkaLj6ErSSlfwp7sUkZcyjc20jLRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"API\",\r\n    \"message\": \"Como puedo consumir una API\",\r\n    \"createDate\": \"2024\",\r\n    \"status\": true,\r\n    \"author\":\"lucas\",\r\n    \"course\": \"java\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/topics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "jose",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"lucas\",\r\n    \"password\": \"1234\",\r\n    \"email\": \"lucas@gmail.com\",\r\n    \"roleRequest\": {\r\n        \"roleListName\":[\"USER\"]\r\n    }\r\n \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DOCS with Swagger",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/swagger-ui/index.html",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"swagger-ui",
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Topics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGT1JPSFVCSldULUJBQ0tFTkQiLCJzdWIiOiJqb3NlIiwiYXV0aG9yaXRpZXMiOiJDUkVBVEUsREVMRVRFLFJFQUQsUk9MRV9BRE1JTixVUERBVEUiLCJpYXQiOjE3MjAxOTIxMzgsImV4cCI6MTcyMDE5MzkzOCwianRpIjoiNTM0OTdlOWUtNmY1Yy00ZTg4LWJiYjItNDRhNDFlNDA1NzhhIiwibmJmIjoxNzIwMTkyMTM4fQ.nfVbIqp6hOKmTLCkaLj6ErSSlfwp7sUkZcyjc20jLRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"Co\",\r\n    \"author\": \"\",\r\n    \"solution\": \"\",\r\n    \"topic\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/topics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Responses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGT1JPSFVCSldULUJBQ0tFTkQiLCJzdWIiOiJqb3NlIiwiYXV0aG9yaXRpZXMiOiJDUkVBVEUsREVMRVRFLFJFQUQsUk9MRV9BRE1JTixVUERBVEUiLCJpYXQiOjE3MjAxOTIxMzgsImV4cCI6MTcyMDE5MzkzOCwianRpIjoiNTM0OTdlOWUtNmY1Yy00ZTg4LWJiYjItNDRhNDFlNDA1NzhhIiwibmJmIjoxNzIwMTkyMTM4fQ.nfVbIqp6hOKmTLCkaLj6ErSSlfwp7sUkZcyjc20jLRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"Co\",\r\n    \"author\": \"\",\r\n    \"solution\": \"\",\r\n    \"topic\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/responses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"responses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Topic By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGT1JPSFVCSldULUJBQ0tFTkQiLCJzdWIiOiJsdWNhcyIsImF1dGhvcml0aWVzIjoiUm9sZV9VU0VSLENSRUFURSxSRUFEIiwiaWF0IjoxNzIwMTU4MjI5LCJleHAiOjE3MjAxNjAwMjksImp0aSI6IjliN2IzMDBhLWE2ODgtNGQxYi1iODQ4LTgwODJjNzJkYjIzMiIsIm5iZiI6MTcyMDE1ODIyOX0.jZ6CJCZf9GHTktlC82W-VtXXhHnnc9lvwu4grht8jk8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topics/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Response By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGT1JPSFVCSldULUJBQ0tFTkQiLCJzdWIiOiJsdWNhcyIsImF1dGhvcml0aWVzIjoiUm9sZV9VU0VSLENSRUFURSxSRUFEIiwiaWF0IjoxNzIwMTU4MjI5LCJleHAiOjE3MjAxNjAwMjksImp0aSI6IjliN2IzMDBhLWE2ODgtNGQxYi1iODQ4LTgwODJjNzJkYjIzMiIsIm5iZiI6MTcyMDE1ODIyOX0.jZ6CJCZf9GHTktlC82W-VtXXhHnnc9lvwu4grht8jk8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/responses/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"responses",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Topic By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJGT1JPSFVCSldULUJBQ0tFTkQiLCJzdWIiOiJsdWNhcyIsImF1dGhvcml0aWVzIjoiUm9sZV9VU0VSLENSRUFURSxSRUFEIiwiaWF0IjoxNzIwMTU4MjI5LCJleHAiOjE3MjAxNjAwMjksImp0aSI6IjliN2IzMDBhLWE2ODgtNGQxYi1iODQ4LTgwODJjNzJkYjIzMiIsIm5iZiI6MTcyMDE1ODIyOX0.jZ6CJCZf9GHTktlC82W-VtXXhHnnc9lvwu4grht8jk8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topic/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topic",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
